@@ -31,6 +31,13 @@ def LBC_to_csv():
 	LBC_df.to_csv('E:\code\python\death916\mining-difficulty\Lbry_History.csv', mode='a')
 	print('saved LBC data to spreadsheet')
 
+def xzc_to_csv():
+	xzcjson = pd.read_json(xzc.content, typ='series')
+	LBC_df = pd.DataFrame(lbryjson)
+	LBC_df.to_csv('E:\code\python\death916\mining-difficulty\XZC_History.csv', mode='a')
+	print('saved XZC data to spreadsheet')
+
+
 
 
 

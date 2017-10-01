@@ -12,15 +12,15 @@ import time
 # Print main coin and current difficulty
 def get_coin():
 
-	coin = coin_data['tag']
-	difficulty = coin_data['difficulty']
+	coin = LBC_data['tag']
+	difficulty = LBC_data['difficulty']
 	print('The Current Difficulty of ' + coin + ' is ' + str(difficulty))
-	timestamp = coin_data['timestamp']
+	timestamp = LBC_data['timestamp']
 
 
 # Full info of main coin 
 def full_info():
-	info = pd.Series(coin_data)
+	info = pd.Series(LBC_data)
 	print(info)
 
 
@@ -32,9 +32,10 @@ def LBC_to_csv():
 	print('saved LBC data to spreadsheet')
 
 def xzc_to_csv():
-	xzcjson = pd.read_json(xzc.content, typ='series')
-	LBC_df = pd.DataFrame(lbryjson)
-	LBC_df.to_csv('E:\code\python\death916\mining-difficulty\XZC_History.csv', mode='a')
+	XZC = requests.get('http://whattomine.com/coins/175.json')
+	xzcjson = pd.read_json(XZC.content, typ='series')
+	XZC_df = pd.DataFrame(xzcjson)
+	XZC_df.to_csv('E:\code\python\death916\mining-difficulty\XZC_History.csv', mode='a')
 	print('saved XZC data to spreadsheet')
 
 
@@ -48,6 +49,8 @@ while True:
 	
 	try:
 		LBC = requests.get('http://whattomine.com/coins/164.json')
+		XZC = requests.get('http://whattomine.com/coins/175.json')
+
 
 		if LBC.status_code == requests.codes.ok:
 			print('Loaded coin data')
@@ -56,12 +59,15 @@ while True:
 	except:
 		print('could not load coin data')
 
-	coin_data = json.loads(LBC.text)
+	LBC_data = json.loads(LBC.text)
+	XZC_data = json.loads(XZC.text)
 	
 	get_coin()
 	full_info()
 	LBC_to_csv()
-	time.sleep(500)
+	xzc_to_csv()
+	time.sleep(3600)
+	
 
 
 

@@ -66,7 +66,7 @@ while True:
 	full_info()
 	LBC_to_csv()
 	xzc_to_csv()
-	time.sleep(3600)
+	time.sleep(1800)
 	
 
 

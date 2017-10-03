@@ -17,6 +17,12 @@ def get_coin():
 	print('The Current Difficulty of ' + coin + ' is ' + str(difficulty))
 	timestamp = LBC_data['timestamp']
 
+def get_XZC():
+	coin = XZC_data['tag']
+	difficulty = LBC_data['difficulty']
+	print('The Current Difficulty of ' + coin + ' is ' + str(difficulty))
+	timestamp = XZC_data['timestamp']
+
 
 # Full info of main coin 
 def full_info():
@@ -63,6 +69,7 @@ while True:
 	XZC_data = json.loads(XZC.text)
 	
 	get_coin()
+	get_XZC()
 	full_info()
 	LBC_to_csv()
 	xzc_to_csv()

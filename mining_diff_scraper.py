@@ -18,9 +18,9 @@ def get_coin():
 	timestamp = LBC_data['timestamp']
 
 def get_XZC():
-	coin = XZC_data['tag']
-	difficulty = LBC_data['difficulty']
-	print('The Current Difficulty of ' + coin + ' is ' + str(difficulty))
+	coin2 = XZC_data['tag']
+	difficulty = XZC_data['difficulty']
+	print('The Current Difficulty of ' + coin2 + ' is ' + str(difficulty))
 	timestamp = XZC_data['timestamp']
 
 

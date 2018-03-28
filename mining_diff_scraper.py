@@ -44,8 +44,11 @@ def xzc_to_csv():
 	XZC_df.to_csv('E:\code\python\death916\mining-difficulty\XZC_History.csv', mode='a')
 	print('saved XZC data to spreadsheet')
 
-
-
+def allcoins():
+	allcoins = requests.get('http://whattomine.com/coins.json')
+	alldata = pd.read_json(allcoins.text)
+	alldata.to_csv('E:\code\python\death916\mining-difficulty\Allcoins.csv', mode='a')
+	print('allcoins saved to csv')
 
 
 # TODO this is a test
@@ -73,20 +76,11 @@ while True:
 	full_info()
 	LBC_to_csv()
 	xzc_to_csv()
+	allcoins()
 	time.sleep(1800)
 	
 
 
 
 
-"""
-allcoins = requests.get('http://whattomine.com/coins.json')
-#alldata = json.loads(allcoins.text)
-alldata = pd.read_json(allcoins.text)
 
-
-#print(all_coin_tags)
-
-
-print(alldata)
-"""

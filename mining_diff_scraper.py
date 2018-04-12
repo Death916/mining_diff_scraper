@@ -62,7 +62,7 @@ while True:
 		LBC_data = json.loads(LBC.text)
 		XZC_data = json.loads(XZC.text)
 		
-		if LBC.status_code == requests.codes.ok:
+		if LBC.status_code == 200:
 			print('Loaded coin data')
 		else:
 			print('Could not load coin data')

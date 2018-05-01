@@ -13,13 +13,17 @@ def get_coin():
 
 	coin = LBC_data['tag']
 	difficulty = LBC_data['difficulty']
+	price = LBC_data['exchange_rate']
 	print('The Current Difficulty of ' + coin + ' is ' + str(difficulty))
+	print(' LBC/BTC price:' + str(price))
 	timestamp = LBC_data['timestamp']
 
 def get_XZC():
 	coin2 = XZC_data['tag']
 	difficulty = XZC_data['difficulty']
+	price = XZC_data['exchange_rate']
 	print('The Current Difficulty of ' + coin2 + ' is ' + str(difficulty))
+	print(' XZC/BTC price:' + str(price))
 	timestamp = XZC_data['timestamp']
 
 
@@ -68,8 +72,8 @@ while True:
 			print('Could not load coin data')
 
 	except BaseException as e:
-		logf = open("download.log", "w")
-		logf.write((str)(e))
+		logf = open("download.log", "a")
+		logf.write(((str)(e) + time.ctime()))
 		print(e)
 		
 	try:
@@ -86,8 +90,8 @@ while True:
 		print((str)(v))
 		print(v)
 	except BaseException as b:
-		logf = open("diff.log", "w")
-		logf.write((str)(b))
+		logf = open("diff.log", "a")
+		logf.write(((str)(b) + time.ctime()))
 		print(b)
 
 	

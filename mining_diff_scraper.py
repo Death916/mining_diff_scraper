@@ -73,7 +73,7 @@ while True:
 
 	except BaseException as e:
 		logf = open("download.log", "a")
-		logf.write(((str)(e) + time.ctime()))
+		logf.write(((str)(e) + time.ctime() + "\n"))
 		print(e)
 		
 	try:
@@ -91,7 +91,7 @@ while True:
 		print(v)
 	except BaseException as b:
 		logf = open("diff.log", "a")
-		logf.write(((str)(b) + time.ctime()))
+		logf.write(((str)(b) + time.ctime() + "\n"))
 		print(b)
 
 	

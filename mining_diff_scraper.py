@@ -72,8 +72,8 @@ while True:
 			print('Could not load coin data')
 
 	except BaseException as e:
-		logf = open("download.log", "a")
-		logf.write(((str)(e) + time.ctime() + "\n"))
+		with open("download.log", "a") as logf:
+			logf.write(((str)(e) + time.ctime() + "\n"))
 		print(e)
 		
 	try:
@@ -90,8 +90,8 @@ while True:
 		print((str)(v))
 		print(v)
 	except BaseException as b:
-		logf = open("diff.log", "a")
-		logf.write(((str)(b) + time.ctime() + "\n"))
+		with open("diff.log", "a") as logf:
+			logf.write(((str)(b) + time.ctime() + "\n"))
 		print(b)
 
 	

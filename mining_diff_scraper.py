@@ -39,7 +39,7 @@ def full_info():
 def LBC_to_csv():
 	lbryjson = pd.read_json(LBC.content, typ='series')
 	LBC_df = pd.DataFrame(lbryjson)
-	LBC_df.to_csv(FOLDER + '\\' + 'LBC.csv', mode='a')
+	LBC_df.to_csv( 'LBC.csv', mode='a')
 	print('saved LBC data to spreadsheet')
 
 
@@ -47,14 +47,14 @@ def xzc_to_csv():
 	XZC = requests.get('http://whattomine.com/coins/175.json')
 	xzcjson = pd.read_json(XZC.content, typ='series')
 	XZC_df = pd.DataFrame(xzcjson)
-	XZC_df.to_csv(FOLDER + '\\' + 'XZC.csv', mode='a')
+	XZC_df.to_csv( 'XZC.csv', mode='a')
 	print('saved XZC data to spreadsheet')
 
 
 def allcoins():
 	allcoins = requests.get('http://whattomine.com/coins.json')
 	alldata = pd.read_json(allcoins.text)
-	alldata.to_csv(FOLDER + '\\' + 'allcoins.csv', mode='a')
+	alldata.to_csv( 'allcoins.csv', mode='a')
 	print('allcoins saved to csv')
 
 

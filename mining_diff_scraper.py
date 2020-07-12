@@ -89,4 +89,6 @@ while True:
 	except BaseException as b:
 		with open("diff.log", "a") as logf:
 			logf.write((str(b) + time.ctime() + "\n"))
-		print(b)
+		print(b) 
+	except KeyboardInterrupt():
+		print('closing')

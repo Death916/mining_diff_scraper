@@ -92,3 +92,4 @@ while True:
 		print(b) 
 	except KeyboardInterrupt():
 		print('closing')
+		exit
